@@ -102,13 +102,13 @@ section{
 }
 
 .card{
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 2px rgba(249, 247, 247, 0.5);
   text-align: center;
   border-radius: 5px;
 }
 
 .card-body{
-  background-color: #d4f6e8;
+  background-color: #46b4d5a3;
   padding: 1rem;
 }
 
