@@ -6,7 +6,7 @@ const recipeSchema=mongoose.Schema({
         required:true
     },
      ingredients:{
-        type:[String],
+        type:[Array],
         required:true
     },
      instructions:{
@@ -21,6 +21,10 @@ const recipeSchema=mongoose.Schema({
         type:String,
        
     },
+    createdBy:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User"
+    }
 
 },{timestamps: true})
 
