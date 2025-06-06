@@ -5,6 +5,8 @@ import Home from './pages/Home'
 import MainNavigation from './components/MainNavigation'
 import axios from 'axios'
 import AddFoodRecipe from './pages/AddFoodRecipe';
+import EditRecipe from './pages/EditRecipe'
+import RecipeDetails from './pages/RecipeDetails'
 
 
 
@@ -23,13 +25,18 @@ const getMyRecipe=async()=>{
   return allRecipes.filter(item=>item.createdBy===user._id)
 }
 
+const getFavRecipes=()=>{
+  return JSON.parse(localStorage.getItem("fav"))
+}
+
 const router = createBrowserRouter([
   {
     path: "/", element: <MainNavigation />, children: [
       { path: '/', element: <Home />,loader:getAllRecipes },
       {path:"/myRecipe",element:<Home/>,loader:getMyRecipe},
-      {path:"/favRecipe",element:<Home/>},
-      {path:"/addRecipe",element:<AddFoodRecipe/>}
+      {path:"/favRecipe",element:<Home/>,loader:getFavRecipes},
+      {path:"/addRecipe",element:<AddFoodRecipe/>},
+      {path:"/editRecipe",element:<EditRecipe/>}
     ]
   }
 

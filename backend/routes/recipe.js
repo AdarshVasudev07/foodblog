@@ -3,9 +3,10 @@ const { getRecipes,getRecipe,addRecipe,editRecipe,deleteRecipe,upload} = require
 const verifyToken = require("../middleware/auth")
 const router=express.Router()
 
-router.get("/",getRecipes) // get all recipes
-router.get("/:id",getRecipe) //get recipe ny id
-router.post("/",upload.single('file'),verifyToken, addRecipe) //add recipe
-router.put("/:id",editRecipe) //edit recipe
-router.delete("/id",deleteRecipe) // delete recipe
+router.get("/",getRecipes) //Get all recipes
+router.get("/:id",getRecipe) //Get recipe by id
+router.post("/",upload.single('file'),verifyToken ,addRecipe) //add recipe
+router.put("/:id",upload.single('file'),editRecipe) //Edit recipe
+router.delete("/:id",deleteRecipe) //Delete recipe
+
 module.exports=router
